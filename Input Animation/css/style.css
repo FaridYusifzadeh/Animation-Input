@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 60vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.form {
+    width: 50%;
+    position: relative;
+    height: 50px;
+    overflow: hidden;
+}
+
+.form input {
+    width: 100%;
+    height: 100%;
+    color: #595f6e;
+    padding-top: 20px;
+    border: none;
+    outline: none;
+}
+
+.form label {
+    position: absolute;
+    bottom: 0px;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid black;
+}
+
+.form label::after {
+    content: "";
+    position: absolute;
+    left: -1px;
+    bottom: 0px;
+    height: 100%;
+    width: 100%;
+    border-bottom: 3px solid #4AA1D3;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.content-position {
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.3s ease;
+}
+
+.form input:focus+.labael-name .content-name, .form input:valid+.labael-name .content-name {
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: #4AA1D3;
+}
+
+.form input:focus+.labael-name::after, .form input:valid+.labael-name::after {
+    transform: translateX(0%);
+}
